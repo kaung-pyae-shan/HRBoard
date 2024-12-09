@@ -1,12 +1,9 @@
 package com.hrboard.model.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hrboard.model.dto.input.EmployeeSearch;
-import com.hrboard.model.dto.output.EmployeeCountDto;
 import com.hrboard.model.dto.output.EmployeeDetailsDto;
 import com.hrboard.model.dto.output.PageInfo;
 import com.hrboard.model.entity.Employee;
@@ -24,10 +21,6 @@ public class EmployeeService {
 	
 	public EmployeeDetailsDto findById(int id) {
 		return repo.findById(id);
-	}
-	
-	public List<EmployeeCountDto> findEmployeeCountDto() {
-		return repo.findEmployeeCountByDepartment();
 	}
 
 	public Employee addNewEmployee(Employee employee) {

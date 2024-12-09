@@ -7,6 +7,4 @@ import com.hrboard.model.repo.custom.EmployeeRepoCustom;
 
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>, EmployeeRepoCustom {
 
-//	@Query("select new com.emp.model.dto.output.EmployeeCountDto(e.department.id, e.department.name, Count(e)) from Employee e group by e.department.id,e.department.name")
-//	List<EmployeeCountDto> findEmployeeCountByDepartment();
 }

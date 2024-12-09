@@ -149,7 +149,7 @@ export function setupEmployeeModalEventListeners() {
    }
 
    // Submit the Employee form
-   modalSubmitButton.addEventListener("click", (event) => {
+   modalSubmitButton.addEventListener("click", () => {
       const action = modalTitle.textContent.includes("Add") ? "add" : "update";
       submitEmployeeForm(action);
    });

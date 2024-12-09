@@ -1,16 +1,12 @@
 package com.hrboard.model.repo.custom.impl;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import com.hrboard.model.dto.input.EmployeeSearch;
-import com.hrboard.model.dto.output.EmployeeCountDto;
 import com.hrboard.model.dto.output.EmployeeDetailsDto;
-import com.hrboard.model.entity.Department_;
 import com.hrboard.model.entity.Employee;
 import com.hrboard.model.entity.Employee_;
 import com.hrboard.model.repo.custom.EmployeeRepoCustom;
@@ -68,21 +64,6 @@ public class EmployeeRepoCustomImpl implements EmployeeRepoCustom {
 		EmployeeDetailsDto.select(cq, root);
 		cq.where(cb.equal(root.get(Employee_.id), id));
 		return em.createQuery(cq).getSingleResult();
-	}
-
-	@Override
-	public List<EmployeeCountDto> findEmployeeCountByDepartment() {
-		var cb = em.getCriteriaBuilder();
-		var cq = cb.createQuery(EmployeeCountDto.class);
-		var root = cq.from(Employee.class);
-		
-		cq.multiselect(
-				root.get(Employee_.department).get(Department_.id),
-				root.get(Employee_.department).get(Department_.name),
-				cb.count(root)
-				).groupBy(root.get(Employee_.department).get(Department_.id),
-						root.get(Employee_.department).get(Department_.name));
-		return em.createQuery(cq).getResultList();
 	}
 
 }

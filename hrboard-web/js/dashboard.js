@@ -1,5 +1,5 @@
 export function loadData() {
-   fetch("http://localhost:8080/api/employee/count")
+   fetch("http://localhost:8080/api/department/count")
       .then((response) => response.json())
       .then((items) => {
          updateDepartmentAndEmployeeCount(items);
@@ -8,7 +8,6 @@ export function loadData() {
 }
 
 function updateDepartmentAndEmployeeCount(items) {
-   console.log(items.length);
    const employeeCount = document.getElementById("employeeCount");
    const departmentCount = document.getElementById("departmentCount");
 
@@ -36,7 +35,7 @@ function initializeChart(items) {
          labels: labels,
          datasets: [
             {
-               label: "# of Votes",
+               label: "Number of Employees",
                data: data,
                borderWidth: 1,
             },

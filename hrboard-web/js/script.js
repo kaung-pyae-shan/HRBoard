@@ -1,5 +1,9 @@
 import { loadData } from "./dashboard.js";
-import { fillDepartmentTable } from "./department.js";
+import {
+   fillDepartmentTable,
+   listenForDepartmentDeleteEvent,
+   setupDepartmentModalEventListeners,
+} from "./department.js";
 import {
    fillEmployeeTable,
    listenForEmployeeDeleteEvent,
@@ -39,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   break;
                case "department.html":
                   fillDepartmentTable();
+                  setupDepartmentModalEventListeners();
+                  listenForDepartmentDeleteEvent();
                   break;
                case "employee.html":
                   fillEmployeeTable(); // function in employee.js

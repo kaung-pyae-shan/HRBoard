@@ -4,5 +4,4 @@ public record EmployeeCountDto(
 		int id,
 		String departmentName,
 		Long employeeCount) {
-
 }
