@@ -1,0 +1,22 @@
+<!-- Main contents -->
+<div class="container">
+   <div class="row">
+      <button class="col-2 btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#departmentModal"
+         data-action="add" id="departmentAddModalBtn">
+         <i class="bi bi-diagram-3"></i> Add New
+      </button>
+      <div class="col-5">
+         <input type="text" class="form-control" id="departmentSearch" placeholder="Search by keyword">
+      </div>
+   </div>
+   <table class="table table-sm table-hover table-bordered align-middle shadow">
+      <thead>
+         <th>Id</th>
+         <th>Name</th>
+         <th>Employees</th>
+         <th>Actions</th>
+      </thead>
+      <tbody id="departmentTbl" class="table-group-divider">
+      </tbody>
+   </table>
+</div>

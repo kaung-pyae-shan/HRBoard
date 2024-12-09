@@ -1,0 +1,54 @@
+export function loadData() {
+   fetch("http://localhost:8080/api/employee/count")
+      .then((response) => response.json())
+      .then((items) => {
+         updateDepartmentAndEmployeeCount(items);
+         initializeChart(items);
+      });
+}
+
+function updateDepartmentAndEmployeeCount(items) {
+   console.log(items.length);
+   const employeeCount = document.getElementById("employeeCount");
+   const departmentCount = document.getElementById("departmentCount");
+
+   let count = 0;
+   items.forEach((item) => {
+      count += item.employeeCount;
+   });
+   employeeCount.textContent = count;
+   departmentCount.textContent = items.length;
+}
+
+function initializeChart(items) {
+   let labels = [];
+   let data = [];
+
+   items.forEach((item) => {
+      labels.push(item.departmentName);
+      data.push(item.employeeCount);
+   });
+   const ctx = document.getElementById("departmentChart").getContext("2d");
+
+   new Chart(ctx, {
+      type: "bar",
+      data: {
+         labels: labels,
+         datasets: [
+            {
+               label: "# of Votes",
+               data: data,
+               borderWidth: 1,
+            },
+         ],
+      },
+      options: {
+         maintainAspectRatio: false,
+         scales: {
+            y: {
+               beginAtZero: true,
+            },
+         },
+      },
+   });
+}
