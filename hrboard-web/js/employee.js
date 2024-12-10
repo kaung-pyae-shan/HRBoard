@@ -136,7 +136,9 @@ export function setupEmployeeModalEventListeners() {
       console.log(positionData);
       fetch("http://localhost:8080/api/position/add", {
          method: "POST",
-         headers: { "Content-Type": "application/json" },
+         headers: {
+            "Content-Type": "application/json",
+         },
          body: JSON.stringify(positionData),
       })
          .then((response) => response.json())
@@ -176,7 +178,9 @@ export function setupEmployeeModalEventListeners() {
       const method = action === "add" ? "POST" : "PUT";
       fetch(url, {
          method: method,
-         headers: { "Content-Type": "application/json" },
+         headers: {
+            "Content-Type": "application/json",
+         },
          body: JSON.stringify(requestBody),
       })
          .then((response) => response.json())

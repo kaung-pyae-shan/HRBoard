@@ -76,10 +76,10 @@ export function setupDepartmentModalEventListeners() {
    // Submit the Department form
    modalSubmitButton.addEventListener("click", () => {
       const action = modalTitle.textContent.includes("Add") ? "add" : "update";
-      submitEmployeeForm(action);
+      submitDepartmentForm(action);
    });
    // Form submit for add and edit
-   function submitEmployeeForm(action) {
+   function submitDepartmentForm(action) {
       const form = document.getElementById("departmentForm");
       const formData = new FormData(form);
       const departmentData = Object.fromEntries(formData.entries());
@@ -93,7 +93,9 @@ export function setupDepartmentModalEventListeners() {
       const method = action === "add" ? "POST" : "PUT";
       fetch(url, {
          method: method,
-         headers: { "Content-Type": "application/json" },
+         headers: {
+            "Content-Type": "application/json",
+         },
          body: JSON.stringify(requestBody),
       })
          .then((response) => response.json())

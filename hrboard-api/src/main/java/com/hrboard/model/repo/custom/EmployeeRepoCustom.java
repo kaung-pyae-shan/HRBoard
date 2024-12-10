@@ -7,8 +7,6 @@ import com.hrboard.model.dto.output.EmployeeDetailsDto;
 
 public interface EmployeeRepoCustom {
 	
-//	List<EmployeeCountDto> findEmployeeCountByDepartment(String name);
-
 	Page<EmployeeDetailsDto> searchAllEmployeeDetails(EmployeeSearch search, int page, int size);
 	
 	EmployeeDetailsDto findById(int id);
